@@ -2,7 +2,7 @@
 #include <vector>
 #include <cstring>
 #include <iostream>
-
+using namespace std;
 /*
 ghazi abbas
 fall semester C++ second part of linked lists/student list project
