@@ -8,7 +8,7 @@ Node :: Node(Student* stu) {//node contructor. It will take in a studetn pointer
 }
 
 Node :: ~Node() {//destructor for node
-  delete &student;
+  delete student;
   next = NULL;
 }
 
