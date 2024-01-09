@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstring>
-#include "Node.h"
+#include "node.h"
+#include "student.h"
 using namespace std;
 
 Node :: Node(Student* stu) {//node contructor. It will take in a studetn pointer and set itself to it

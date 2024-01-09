@@ -1,8 +1,9 @@
 #ifndef BRAVO
 #define BRAVO
-
+#include "student.h"
 #include<iostream>
 #include<cstring>
+//forward declaration
 
 
 using namespace std;
