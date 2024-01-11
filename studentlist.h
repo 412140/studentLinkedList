@@ -12,7 +12,7 @@ public:
   void printStu();
   void printStu(Node*);
   void delStu();
-  void delStu(int, Node*&, Node*);
+  void delStu(int, Node*, Node*);
   float calcAvg();
   float calcAvg(Node*, int&, float&);
   void quit();

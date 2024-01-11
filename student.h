@@ -1,6 +1,6 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-#include "node.h"
+//#include "node.h"
 using namespace std;
 
 //initial sl was done with structs, this project uses a class

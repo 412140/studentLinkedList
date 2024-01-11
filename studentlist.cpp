@@ -67,7 +67,7 @@ void StudentList::delStu()
   delStu(studentIdToDelete, head, nullptr_t());
 }
 
-void StudentList::delStu(int studentId, Node*& currentNode, Node* prevNode) 
+void StudentList::delStu(int studentId, Node* currentNode, Node* prevNode) 
 {
   if (currentNode) 
   {
