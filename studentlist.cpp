@@ -21,24 +21,36 @@ StudentList::~StudentList()
 }
 void StudentList::addStu()
 {
-  Node* newStudentNode = new Node(new Student());
-  addStu(newStudentNode);
+  char fName[30];
+  char lName[40];
+  int studentId;
+  float gpa;
+
+  cout << "Enter first name: ";
+  cin >> fName;
+
+  cout << "Enter last name: ";
+  cin >> lName;
+
+  cout << "Enter student ID: ";
+  cin >> studentId;
+
+  cout << "Enter GPA: ";
+  cin >> gpa;
+
+  addStu(head, fName, lName, studentId, gpa);
 }
 
-void StudentList::addStu(Node*& newNode) 
+void StudentList::addStu(Node* currentNode, char* fName, char* lName, int studentId, float gpa) 
 {
-  if (!head || head->getStudent()->getStudentId() > newNode->getStudent()->getStudentId()) 
+  if (!currentNode || currentNode->getStudent()->getStudentId() > studentId) 
   {
-    newNode->setNext(head);
-    head = newNode;
+    Node* newStudentNode = new Node(new Student(fName, lName, studentId, gpa));
+    newStudentNode->setNext(currentNode);
+    currentNode = newStudentNode;
+    head = newStudentNode;  // Update head when adding at the beginning
   } else {
-    Node* temp = head;
-    while (temp->getNext() && temp->getNext()->getStudent()->getStudentId() < newNode->getStudent()->getStudentId()) 
-    {
-      temp = temp->getNext();
-    }
-    newNode->setNext(temp->getNext());
-    temp->setNext(newNode);
+    addStu(currentNode->getNext(), fName, lName, studentId, gpa);
   }
 }
 
@@ -92,7 +104,18 @@ float StudentList::calcAvg()
 {
   int totalStudents = 0;
   float totalGPA = 0.0;
-  return calcAvg(head, totalStudents, totalGPA);
+  float average = calcAvg(head, totalStudents, totalGPA);
+
+  if (totalStudents == 0) 
+  {
+    cout << "No students found." << endl;
+    return 0.0;
+  } 
+  else 
+  {
+    cout << "Average GPA: " << fixed << setprecision(2) << average << endl;
+    return average;
+  }
 }
 
 float StudentList::calcAvg(Node* currentNode, int& totalStudents, float& totalGPA) 
@@ -103,12 +126,8 @@ float StudentList::calcAvg(Node* currentNode, int& totalStudents, float& totalGP
     totalStudents++;
     calcAvg(currentNode->getNext(), totalStudents, totalGPA);
   }
-  if (totalStudents == 0) 
-  {
-    cout << "No students found." << endl;
-    return 0.0;
-  }
-  return totalGPA / totalStudents;
+
+  return (totalStudents == 0) ? 0.0 : totalGPA / totalStudents;
 }
 //cleanup
 void StudentList::quit() 

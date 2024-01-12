@@ -8,14 +8,15 @@ public:
   StudentList();
   ~StudentList();
   void addStu();
-  void addStu(Node*&);
+  void addStu(Node*, char*, char*, int, float);
   void printStu();
   void printStu(Node*);
   void delStu();
   void delStu(int, Node*, Node*);
+  void quit();
   float calcAvg();
   float calcAvg(Node*, int&, float&);
-  void quit();
+
 private:
   Node* head;
 };
